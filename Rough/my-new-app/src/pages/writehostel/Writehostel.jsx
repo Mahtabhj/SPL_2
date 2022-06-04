@@ -23,7 +23,7 @@ export default function Writehostel() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newHouse = {
+    const newHostel = {
       username: user.username,
       title,
       desc,
@@ -45,17 +45,17 @@ export default function Writehostel() {
       data.append("file1", file1);
       data.append("name", videoname);
       data.append("video", video);
-      newHouse.photo = filename;
+      newHostel.photo = filename;
 
-      newHouse.photo1 = filename1;
+      newHostel.photo1 = filename1;
 
-      newHouse.video = videoname;
+      newHostel.video = videoname;
       try {
         await axios.post("/upload", data);
       } catch (err) {}
     }
     try {
-      const res = await axios.post("/houses", newHouse);
+      const res = await axios.post("/hostels", newHostel);
       window.location.replace("/hostel/" + res.data._id);
     } catch (err) {}
   };

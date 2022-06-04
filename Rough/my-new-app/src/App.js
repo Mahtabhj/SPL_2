@@ -11,6 +11,9 @@ import { useContext } from "react";
 import Create from "./pages/create/Create";
 import Writehouse from "./pages/writehouse/Writehouse";
 import Writehostel from "./pages/writehostel/Writehostel";
+import House from "./components/house/House";
+import Hostel from "./components/hostel/Hostel";
+import View from "./components/view/View";
 function App() {
   // const { user } = useContext(Context);
   const { user } = useContext(Context);
@@ -23,13 +26,14 @@ function App() {
        <Route path="/register" element={user ? <Homepage /> : <Register />} />
        <Route path="/posts" element={<Homepage/>}/>
        <Route path="/login" element={user ? <Homepage /> : <Login />}/>
+       <Route path="/house/:id" element={<House />}/>
+       <Route path="/hostel/:id" element={<Hostel />}/>
        <Route path="/post/:id" element={<Single />}/>
-       {/* <Route path="/hostel/:id" element={<Single />}/>
-       <Route path="/house/:id" element={<Single />}/> */}
        <Route path="/write" element={user ? <Write /> : <Login />}/>
        <Route path="/writehouse" element={user ? <Writehouse /> : <Login />}/>
        <Route path="/writehostel" element={user ? <Writehostel /> : <Login />}/>
        <Route path="/create" element={user ? <Create /> : <Login />}/>
+       <Route path="/view" element={user ? <View /> : <Login />}/>
        <Route path="/settings" element={user ? <Settings /> : <Login />}/>
        
        </Routes>

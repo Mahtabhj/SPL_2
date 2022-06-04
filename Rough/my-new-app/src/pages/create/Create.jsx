@@ -80,7 +80,7 @@ export default function Create() {
               Rent
             </Link>
           </li>
-          {/* <li className="topListItem">
+          <li className="topListItem">
             <Link className="link" to="/writehouse">
               House
             </Link>
@@ -89,7 +89,7 @@ export default function Create() {
             <Link className="link" to="/writehostel">
               Hostel
             </Link>
-          </li> */}
+          </li>
     </div>
   );
 }

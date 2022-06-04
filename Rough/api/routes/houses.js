@@ -1,13 +1,13 @@
 const router = require("express").Router();
 const User = require("../models/User");
-const house = require("../models/house");
+const House = require("../models/House");
 
-//CREATE house
+//CREATE House
 router.post("/", async (req, res) => {
-  const newhouse = new house(req.body);
+  const newHouse = new House(req.body);
   try {
-    const savedhouse = await newhouse.save();
-    res.status(200).json(savedhouse);
+    const savedHouse = await newHouse.save();
+    res.status(200).json(savedHouse);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -16,17 +16,17 @@ router.post("/", async (req, res) => {
 //UPDATE house
 router.put("/:id", async (req, res) => {
   try {
-    const house = await house.findById(req.params.id);
+    const house = await House.findById(req.params.id);
     if (house.username === req.body.username) {
       try {
-        const updatedhouse = await house.findByIdAndUpdate(
+        const updatedHouse = await House.findByIdAndUpdate(
           req.params.id,
           {
             $set: req.body,
           },
           { new: true }
         );
-        res.status(200).json(updatedhouse);
+        res.status(200).json(updatedHouse);
       } catch (err) {
         res.status(500).json(err);
       }
@@ -41,7 +41,7 @@ router.put("/:id", async (req, res) => {
 //DELETE house
 router.delete("/:id", async (req, res) => {
   try {
-    const house = await house.findById(req.params.id);
+    const house = await House.findById(req.params.id);
     if (house.username === req.body.username) {
       try {
         await house.delete();
@@ -60,7 +60,7 @@ router.delete("/:id", async (req, res) => {
 //GET house
 router.get("/:id", async (req, res) => {
   try {
-    const house = await house.findById(req.params.id);
+    const house = await House.findById(req.params.id);
     res.status(200).json(house);
   } catch (err) {
     res.status(500).json(err);
@@ -74,15 +74,15 @@ router.get("/", async (req, res) => {
   try {
     let houses;
     if (username) {
-      houses = await house.find({ username });
+      houses = await House.find({ username });
     } else if (catName) {
-      houses = await house.find({
+      houses = await House.find({
         categories: {
           $in: [catName],
         },
       });
     } else {
-      houses = await house.find();
+      houses = await House.find();
     }
     res.status(200).json(houses);
   } catch (err) {
