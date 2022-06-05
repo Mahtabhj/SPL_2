@@ -77,19 +77,22 @@ export default function Create() {
    <div>
           <li className="topListItem">
             <Link className="link" to="/write">
-              Rent
+            <button type="button" class="btn btn-success btn-lg btn-lg btn-lg">Rent</button>
             </Link>
           </li>
+        
           <li className="topListItem">
             <Link className="link" to="/writehouse">
-              House
+            <h1>Sell House</h1>
             </Link>
           </li>
           <li className="topListItem">
             <Link className="link" to="/writehostel">
-              Hostel
+            <h1>Hostel Rent</h1>
             </Link>
           </li>
+         
+
     </div>
   );
 }

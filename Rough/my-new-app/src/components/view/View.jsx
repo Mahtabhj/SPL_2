@@ -47,23 +47,23 @@ export default function View() {
 
       <li className="topListItem">
             <Link className="link" to="/viewposts">
-              Rent
+             <h2>Rent</h2> 
             </Link>
             
           </li>
           <li className="topListItem">
             <Link className="link" to="/viewhouse">
-              House
+            <h2>House</h2> 
             </Link>
           </li>
           <li className="topListItem">
             <Link className="link" to="/viewhostel">
-              Hostel
+            <h2>Hostel</h2> 
             </Link>
           </li>
           <li className="topListItem">
             <Link className="link" to="/search">
-              Search
+              <button className="btn btn-success">Search</button>
             </Link>
           </li>
 
