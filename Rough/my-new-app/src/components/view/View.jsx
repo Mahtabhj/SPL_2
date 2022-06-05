@@ -61,6 +61,14 @@ export default function View() {
               Hostel
             </Link>
           </li>
+          <li className="topListItem">
+            <Link className="link" to="/search">
+              Search
+            </Link>
+          </li>
+
+          
+
         <Posts posts={posts}/>
        
         <Houses posts={houses}/>
