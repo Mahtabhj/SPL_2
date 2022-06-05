@@ -34,22 +34,37 @@ export default function Write() {
       amount,
       contact,
     };
-    if (file&&file1&&video) {
-      const data =new FormData();
-      const filename = file.name;
-      const filename1 = file1.name;
-      const videoname = video.name;
+    if (file) {
+const data =new FormData();
+const filename = file.name;
+      
+      
       data.append("name", filename);
       data.append("file", file);
-      data.append("name", filename1);
-      data.append("file1", file1);
-      data.append("name", videoname);
-      data.append("video", video);
+      
+     
       newPost.photo = filename;
-
+      if(file1)
+      {
+const filename1 = file1.name;
+data.append("name", filename1);
+      data.append("file1", file1);
       newPost.photo1 = filename1;
+      }
 
+      if(video)
+      {
+        const videoname = video.name;
+         data.append("name", videoname);
+      data.append("video", video);
       newPost.video = videoname;
+      }
+      
+      
+
+      
+
+      
       try {
         await axios.post("/upload", data);
       } catch (err) {}
@@ -135,8 +150,28 @@ export default function Write() {
 </div>
 
 <div className="writeFormGroup">
-<label class="input-group-text" for="inputGroupSelect01">Category</label>
-  <select 
+
+
+        
+        <div className="writeFormGroup">
+        <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Address</span>
+  </div>
+          <input
+            type="text"
+            // placeholder="Address"
+            class="form-control"
+            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+            autoFocus={true}
+            onChange={e=>setTitle(e.target.value)}
+          />
+          </div>
+</div>
+  
+{/* <label class="input-group-text" for="inputGroupSelect01">Category</label> */}
+
+  {/* <select 
    type="text"
    placeholder="Title"
    className="writeInput"
@@ -147,7 +182,7 @@ export default function Write() {
   <option value="Rent">Rent</option>
   <option value="Sell House">Sell House</option>
   <option value="Hostel Rent">Hostel Rent</option>
-</select>
+</select> */}
 <br></br>
   
   </div>
@@ -155,7 +190,7 @@ export default function Write() {
         <div className="writeFormGroup">
         <div class="input-group mb-3">
   <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-default">Address</span>
+    <span class="input-group-text" id="inputGroup-sizing-default">Category</span>
   </div>
           <input
             type="text"

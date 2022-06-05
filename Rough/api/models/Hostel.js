@@ -37,7 +37,7 @@ const HostelSchema = new mongoose.Schema(
     },
     photo: {
       type: String,
-      required: false,
+      required: true,
     },
     photo1: {
       type: String,

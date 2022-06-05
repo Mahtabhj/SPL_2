@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
-
+// import { useLocation } from "react-router";
+import Header from "../../components/header/Header";
 import Posts from "../../components/posts/Posts";
 import Sidebar from "../../components/sidebar/Sidebar";
 import "./view.css";
@@ -8,9 +9,8 @@ import axios from "axios"
 import { useLocation } from "react-router";
 import Houses from "../../components/houses/Houses";
 import Hostels from "../../components/hostels/Hostels";
-import { Link } from "react-router-dom";
 
-export default function View() {
+export default function Viewhostel() {
   const [posts, setPosts] = useState([]);
   const [houses,setHouses] = useState([]);
   const [hostels,setHostels] = useState([]);
@@ -38,32 +38,11 @@ export default function View() {
   return (
   
     <>
-      
+      {/* <Header /> */}
       <div className="home">
-
-      {/* <button onClick={<Posts posts={posts}/>}>
-  Activate Lasers
-</button> */}
-
-      <li className="topListItem">
-            <Link className="link" to="/viewposts">
-              Rent
-            </Link>
-            
-          </li>
-          <li className="topListItem">
-            <Link className="link" to="/viewhouse">
-              House
-            </Link>
-          </li>
-          <li className="topListItem">
-            <Link className="link" to="/viewhostel">
-              Hostel
-            </Link>
-          </li>
-        <Posts posts={posts}/>
+        {/* <Posts posts={posts}/>
        
-        <Houses posts={houses}/>
+        <Houses posts={houses}/> */}
 
         <Hostels posts={hostels}/>
         <Sidebar />

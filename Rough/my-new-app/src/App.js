@@ -14,6 +14,10 @@ import Writehostel from "./pages/writehostel/Writehostel";
 import House from "./components/house/House";
 import Hostel from "./components/hostel/Hostel";
 import View from "./components/view/View";
+import Viewpost from "./components/view/Viewpost";
+import Viewhouse from "./components/view/Viewhouse";
+import Viewhostel from "./components/view/Viewhostel";
+
 function App() {
   // const { user } = useContext(Context);
   const { user } = useContext(Context);
@@ -25,6 +29,9 @@ function App() {
        <Route path="/" element={ <Homepage/> } />
        <Route path="/register" element={user ? <Homepage /> : <Register />} />
        <Route path="/posts" element={<Homepage/>}/>
+       <Route path="/viewposts" element={<Viewpost/>}/>
+       <Route path="/viewhouse" element={<Viewhouse/>}/>
+       <Route path="/viewhostel" element={<Viewhostel/>}/>
        <Route path="/login" element={user ? <Homepage /> : <Login />}/>
        <Route path="/house/:id" element={<House />}/>
        <Route path="/hostel/:id" element={<Hostel />}/>

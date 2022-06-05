@@ -6,6 +6,7 @@ const PostSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
+     
     },
     desc: {
       type: String,
@@ -37,7 +38,7 @@ const PostSchema = new mongoose.Schema(
     },
     photo: {
       type: String,
-      required: false,
+      required: true,
     },
     photo1: {
       type: String,

@@ -33,32 +33,46 @@ export default function Writehouse() {
       amount,
       contact,
     };
-    if (file&&file1&&video) {
+    if (file) {
       const data =new FormData();
       const filename = file.name;
+            
+            
+            data.append("name", filename);
+            data.append("file", file);
+            
+           
+            newHouse.photo = filename;
+            if(file1)
+            {
       const filename1 = file1.name;
-      const videoname = video.name;
-      data.append("name", filename);
-      data.append("file", file);
       data.append("name", filename1);
-      data.append("file1", file1);
-      data.append("name", videoname);
-      data.append("video", video);
-      newHouse.photo = filename;
-
-      newHouse.photo1 = filename1;
-
-      newHouse.video = videoname;
-      try {
-        await axios.post("/upload", data);
-      } catch (err) {}
-    }
-    try {
-      const res = await axios.post("/houses", newHouse);
-      window.location.replace("/house/" + res.data._id);
-    } catch (err) {}
-  };
-
+            data.append("file1", file1);
+            newHouse.photo1 = filename1;
+            }
+      
+            if(video)
+            {
+              const videoname = video.name;
+               data.append("name", videoname);
+            data.append("video", video);
+            newHouse.video = videoname;
+            }
+            
+            
+      
+            
+      
+            
+            try {
+              await axios.post("/upload", data);
+            } catch (err) {}
+          }
+          try {
+            const res = await axios.post("/houses", newHouse);
+            window.location.replace("/house/" + res.data._id);
+          } catch (err) {}
+        };
   
   
  
@@ -134,19 +148,22 @@ export default function Writehouse() {
 </div>
 
 <div className="writeFormGroup">
-<label class="input-group-text" for="inputGroupSelect01">Category</label>
-  <select 
-   type="text"
-   placeholder="Title"
-   className="writeInput"
-   autoFocus={true}
-   onChange={e=>setTitle(e.target.value)}
-  class="form-select" aria-label=".form-select-lg example">
-  <option >Select Post Category</option>
-  <option value="Rent">Rent</option>
-  <option value="Sell House">Sell House</option>
-  <option value="Hostel Rent">Hostel Rent</option>
-</select>
+
+<div className="writeFormGroup">
+        <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Address</span>
+  </div>
+          <input
+            type="text"
+            // placeholder="Address"
+            class="form-control"
+            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+            autoFocus={true}
+            onChange={e=>setTitle(e.target.value)}
+          />
+          </div>
+</div>
 <br></br>
   
   </div>
@@ -154,7 +171,7 @@ export default function Writehouse() {
         <div className="writeFormGroup">
         <div class="input-group mb-3">
   <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-default">Address</span>
+    <span class="input-group-text" id="inputGroup-sizing-default">Category</span>
   </div>
           <input
             type="text"

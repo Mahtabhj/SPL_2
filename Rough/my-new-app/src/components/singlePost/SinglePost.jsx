@@ -135,12 +135,13 @@ export default function SinglePost() {
           //   </div>
           <div>
           <div class="card-header">
-    Address
+    Category
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
-      <p>
-            {"      "+address}</p>
+      {/* <p>
+            {"      "+address}</p> */}<p>
+            Rent</p>
       {/* <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer> */}
     </blockquote>
   </div>
