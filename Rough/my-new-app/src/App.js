@@ -19,6 +19,12 @@ import Viewhouse from "./components/view/Viewhouse";
 import Viewhostel from "./components/view/Viewhostel";
 import Search from "./components/search/Search";
 import Searchbar from "./components/search/Searchbar";
+import Allsearch from "./components/search/Allsearch";
+import Searchhouse from "./components/search/Searchhouse";
+import Searchhostel from "./components/search/Searchhostel";
+import Postrange from "./components/search/Postrange";
+import Houserange from "./components/search/Houserange";
+import Hostelrange from "./components/search/Hostelrange";
 
 function App() {
   // const { user } = useContext(Context);
@@ -32,6 +38,12 @@ function App() {
        <Route path="/register" element={user ? <Homepage /> : <Register />} />
        <Route path="/posts" element={<Homepage/>}/>
        <Route path="/search" element={<Search/>}/>
+       <Route path="/searchhouse" element={<Searchhouse/>}/>
+       <Route path="/searchhostel" element={<Searchhostel/>}/>
+       <Route path="/postrange" element={<Postrange/>}/>
+       <Route path="/houserange" element={<Houserange/>}/>
+       <Route path="/hostelrange" element={<Hostelrange/>}/>
+       <Route path="/allsearch" element={<Allsearch/>}/>
        <Route path="/searchbar" element={<Searchbar/>}/>
        <Route path="/viewposts" element={<Viewpost/>}/>
        <Route path="/viewhouse" element={<Viewhouse/>}/>

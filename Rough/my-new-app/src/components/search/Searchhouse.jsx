@@ -12,8 +12,9 @@ import Houses from "../../components/houses/Houses";
 import Hostels from "../../components/hostels/Hostels";
 import Post from "../post/Post";
 import Searchbar from "./Searchbar";
+import House from "../house/House";
 
-function Search() {
+function Searchhouse() {
     const [posts, setPosts] = useState([]);
   const [houses,setHouses] = useState([]);
   const [hostels,setHostels] = useState([]);
@@ -21,46 +22,22 @@ function Search() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("/posts" + search)
+      const res = await axios.get("/houses" + search)
       
       setPosts(res.data);
 
-      const res1 = await axios.get("/houses" + search)
+    //   const res1 = await axios.get("/houses" + search)
 
-      setHouses(res1.data);
+    //   setHouses(res1.data);
 
-      const res2 = await axios.get("/hostels" + search)
+    //   const res2 = await axios.get("/hostels" + search)
 
-      setHostels(res2.data);
+    //   setHostels(res2.data);
 
     };
     fetchPosts();
   }, [search1]);
-    // const [query, setQuery] = useState("");
-    // const [data, setData] = useState([]);
-    // const { search } = useLocation();
-    // useEffect(() => {
-    //   const fetchData = async () => {
-    //     //  = await axios.get(`http://localhost:5000?q=${query}`);
-    //     const res = await axios.get("/posts"  + search);
-    //     setData(res.data);
-    //   };
-    //   if (query.length === 0 || query.length > 2) fetchData();
-    // }, [query]);
-   
-    // return (
-    //   <div className="app">
-    //       <p>Hi</p>
 
-    //       <Searchbar/>
-    //       {/* <input
-    //         className="search"
-    //         placeholder="Search..."
-    //         onChange={(e) => setQuery(e.target.value.toLowerCase())}
-    //       /> */}
-    //     {/* <Post posts={data} /> */}
-    //   </div>
-    // );
     const filterPosts = (posts, query) => {
         if (!query) {
             return posts;
@@ -68,13 +45,6 @@ function Search() {
     
         return posts.filter((post) => {
             const postName = post.title.toLowerCase();
-            // const postAmount = Math.floor(post.amount);
-            // const query1 = Math.floor(query);
-
-            // if(postAmount>query1)
-            // {
-            //     return postName;
-            // }
             return postName.includes(query);
         });
     };
@@ -93,7 +63,7 @@ function Search() {
             <ul>
                 {filteredPosts.map(post => (
                     // <li key={post.key}>{post.title}</li>
-                    <Posts posts={filteredPosts}/>
+                    <Houses posts={filteredPosts}/>
                 ))}
             </ul> 
             </div>
@@ -103,4 +73,4 @@ function Search() {
     );
   }
   
-  export default Search;
+  export default Searchhouse;

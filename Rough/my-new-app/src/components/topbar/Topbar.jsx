@@ -46,6 +46,11 @@ export default function TopBar() {
               VIEW POST
             </Link>
           </li>
+          <li className="topListItem">
+            <Link className="link" to="/allsearch">
+              SEARCH
+            </Link>
+          </li>
           {/* <li className="topListItem" onClick={handleLogout}>
             {user && "LOGOUT"}
           </li> */}

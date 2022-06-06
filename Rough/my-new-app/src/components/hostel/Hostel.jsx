@@ -154,7 +154,8 @@ export default function Hostel() {
 {updateMode ? (
           <textarea
             className="singlePostDescInput"
-            value={floor}
+            placeholder="Floor"
+            // value={floor}
             onChange={(e) => setFloor(e.target.value)}
           />
         ) : (
@@ -175,7 +176,8 @@ export default function Hostel() {
 {updateMode ? (
           <textarea
             className="singlePostDescInput"
-            value={room}
+            placeholder="Room"
+            // value={room}
             onChange={(e) => setRoom(e.target.value)}
           />
         ) : (
@@ -196,7 +198,8 @@ export default function Hostel() {
 {updateMode ? (
           <textarea
             className="singlePostDescInput"
-            value={area}
+            placeholder="Area"
+            // value={area}
             onChange={(e) => setArea(e.target.value)}
           />
         ) : (
@@ -219,7 +222,8 @@ export default function Hostel() {
 {updateMode ? (
           <textarea
             className="singlePostDescInput"
-            value={amount}
+            placeholder="Amount"
+            // value={amount}
             onChange={(e) => setAmount(e.target.value)}
           />
         ) : (
@@ -240,7 +244,8 @@ export default function Hostel() {
 {updateMode ? (
           <textarea
             className="singlePostDescInput"
-            value={contact}
+            placeholder="Contact"
+            // value={contact}
             onChange={(e) => setContact(e.target.value)}
           />
         ) : (
@@ -261,7 +266,8 @@ export default function Hostel() {
         {updateMode ? (
           <textarea
             className="singlePostDescInput"
-            value={desc}
+            placeholder="Desc"
+            // value={desc}
             onChange={(e) => setDesc(e.target.value)}
           />
         ) : (

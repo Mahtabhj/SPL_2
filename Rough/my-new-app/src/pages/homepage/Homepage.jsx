@@ -40,11 +40,19 @@ export default function Homepage() {
     <>
       <Header />
       <div className="home">
-        <Posts posts={posts}/>
-       
-        <Houses posts={houses}/>
 
-        <Hostels posts={hostels}/>
+        <div>
+           <Posts posts={posts}/>
+        </div>
+       
+       <div>
+          <Houses posts={houses}/>
+       </div>
+       
+<div> 
+  <Hostels posts={hostels}/>
+</div>
+        
         <Sidebar />
       </div>
     </>

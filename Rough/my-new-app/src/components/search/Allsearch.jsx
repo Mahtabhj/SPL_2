@@ -66,31 +66,55 @@
 
 import { Link } from "react-router-dom";
 
-import "./create.css";
+import "./search.css";
 
-export default function Create() {
+export default function Allsearch() {
  
  
 
  
   return (
    <div>
-          <li className="topListItem">
-            <Link className="link" to="/write">
-            <h1>Rent</h1>
+     <div>
+       {/* <h1 >Search by Address</h1> */}
+       <div class="p-3 mb-2 bg-primary text-white"><h1>Search by Address</h1></div>
+       <li className="topListItem">
+            <Link className="link" to="/search">
+            <h2>Search form Rent</h2>
             </Link>
           </li>
         
           <li className="topListItem">
-            <Link className="link" to="/writehouse">
-            <h1>Sell House</h1>
+            <Link className="link" to="/searchhouse">
+            <h2>Search from Sell House</h2>
             </Link>
           </li>
           <li className="topListItem">
-            <Link className="link" to="/writehostel">
-            <h1>Hostel Rent</h1>
+            <Link className="link" to="/searchhostel">
+            <h2>Search Hostel Rent</h2>
             </Link>
           </li>
+     </div>
+     <div>
+       {/* <h1 >Search by Address</h1> */}
+       <div class="p-3 mb-2 bg-primary text-white"><h1>Search by Price Range</h1></div>
+       <li className="topListItem">
+            <Link className="link" to="/postrange">
+            <h2>Search form Rent</h2>
+            </Link>
+          </li>
+        
+          <li className="topListItem">
+            <Link className="link" to="/houserange">
+            <h2>Search from Sell House</h2>
+            </Link>
+          </li>
+          <li className="topListItem">
+            <Link className="link" to="/hostelrange">
+            <h2>Search Hostel Rent</h2>
+            </Link>
+          </li>
+     </div>
          
 
     </div>

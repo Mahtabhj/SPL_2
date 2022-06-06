@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const {ObjectId} = mongoose.Schema.Types
 const PostSchema = new mongoose.Schema(
   {
     title: {
@@ -56,6 +56,10 @@ const PostSchema = new mongoose.Schema(
       type: Array,
       required: false,
     },
+    comments:[{
+      text:String,
+      postedBy:{type:ObjectId,ref:"User"}
+  }],
   },
   { timestamps: true }
 );

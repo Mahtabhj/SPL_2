@@ -44,8 +44,15 @@ export default function View() {
       {/* <button onClick={<Posts posts={posts}/>}>
   Activate Lasers
 </button> */}
+{/* <div><Link className="link" to="/allsearch">
+              <button className="btn btn-secondary"><i className="topSearchIcon fas fa-search"></i><h2>Search</h2></button>
+            </Link></div> */}
 
-      <li className="topListItem">
+            <br></br>
+
+            <div>
+              <li className="topListItem">
+      
             <Link className="link" to="/viewposts">
              <h2>Rent</h2> 
             </Link>
@@ -61,19 +68,25 @@ export default function View() {
             <h2>Hostel</h2> 
             </Link>
           </li>
-          <li className="topListItem">
-            <Link className="link" to="/search">
-              <button className="btn btn-success">Search</button>
-            </Link>
-          </li>
+            </div>
+      
+          
+            
+         
 
           
 
-        <Posts posts={posts}/>
+          <div>
+           <Posts posts={posts}/>
+        </div>
        
-        <Houses posts={houses}/>
-
-        <Hostels posts={hostels}/>
+       <div>
+          <Houses posts={houses}/>
+       </div>
+       
+<div> 
+  <Hostels posts={hostels}/>
+</div>
         <Sidebar />
       </div>
     </>
