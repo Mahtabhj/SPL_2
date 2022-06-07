@@ -6,11 +6,12 @@ const HouseSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
+     
     },
-    desc: {
+    desc: [{
       type: String,
       required: false,
-    },
+    }],
     address: {
       type: String,
       required: false,
@@ -55,6 +56,10 @@ const HouseSchema = new mongoose.Schema(
       type: Array,
       required: false,
     },
+    comments:[{
+      text:String,
+      required:false,
+  }],
   },
   { timestamps: true }
 );

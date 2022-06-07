@@ -2,16 +2,23 @@ const mongoose = require("mongoose");
 const {ObjectId} = mongoose.Schema.Types
 const PostSchema = new mongoose.Schema(
   {
+    // id: {
+    //   type: Sequelize.INTEGER,
+    //   autoincreament : true,
+    //   required: true,
+    //   unique: true,
+     
+    // },
     title: {
       type: String,
       required: true,
       unique: true,
      
     },
-    desc: {
+    desc: [{
       type: String,
       required: false,
-    },
+    }],
     address: {
       type: String,
       required: false,
@@ -58,7 +65,7 @@ const PostSchema = new mongoose.Schema(
     },
     comments:[{
       text:String,
-      postedBy:{type:ObjectId,ref:"User"}
+      required:false,
   }],
   },
   { timestamps: true }

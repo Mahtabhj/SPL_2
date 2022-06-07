@@ -6,11 +6,12 @@ const HostelSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
+     
     },
-    desc: {
+    desc: [{
       type: String,
       required: false,
-    },
+    }],
     address: {
       type: String,
       required: false,
@@ -55,8 +56,11 @@ const HostelSchema = new mongoose.Schema(
       type: Array,
       required: false,
     },
+    comments:[{
+      text:String,
+      required:false,
+  }],
   },
   { timestamps: true }
 );
-
 module.exports = mongoose.model("Hostel", HostelSchema);

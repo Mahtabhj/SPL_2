@@ -76,6 +76,7 @@ export default function Allsearch() {
   return (
    <div>
      <div>
+     
        {/* <h1 >Search by Address</h1> */}
        <div class="p-3 mb-2 bg-primary text-white"><h1>Search by Address</h1></div>
        <li className="topListItem">

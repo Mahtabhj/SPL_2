@@ -20,7 +20,8 @@ export default function House() {
   const [amount, setAmount] = useState("");
   const [contact, setContact] = useState("");
   const [address, setAddress] = useState("");
-  const [desc, setDesc] = useState("");
+  const [desc, setDesc] = useState([]);
+  const [comments, setComments] = useState();
   const [updateMode, setUpdateMode] = useState(false);
 
   useEffect(() => {
@@ -35,9 +36,16 @@ export default function House() {
       setFloor(res.data.floor);
       setRoom(res.data.room);
       setContact(res.data.contact);
+      setComments(res.data.comments);
     };
     getHouse();
   }, [path]);
+
+  const onClick = () => {
+    
+    setDesc( arr => [...arr, `${comments+"--------------------------"+user.username}`]);
+    
+};
 
   const handleDelete = async () => {
     try {
@@ -263,7 +271,7 @@ export default function House() {
   </div>
         )}
 
-        {updateMode ? (
+        {/* {updateMode ? (
           <textarea
             className="singlePostDescInput"
             placeholder="Desc"
@@ -272,17 +280,41 @@ export default function House() {
           />
         ) : (
           <p className="singlePostDesc"><button type="button" class="btn btn-dark">Description</button>{"  "+desc}</p>
-        )}
-        {updateMode && (
-          <button className="singlePostButton" onClick={handleUpdate}>
-            Update
-          </button>
-        )}
-      </div>
-      <div class="card my-4">
-          <label>Comment   </label>
-          <input placeholder="Leave a comment"></input>
+        )} */}
         </div>
+      <div>
+      {/* <p>
+            {"      "+comments}</p> */}
+    <div>
+    <p className="singlePostDesc"><button type="button" class="btn btn-secondary">Comments</button></p>
+    
+    <div>
+          <div class="card-header">
+   
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+       {desc.map(desc => <h4>{desc}</h4>)}
+    </blockquote>
+  </div>
+  </div>
+
+     
+      	</div>
+      <div class="card my-4">
+          
+          <textarea
+          placeholder="Leave a Comment"
+            className="singlePostDescInput"
+            value={comments}
+            onChange={(e) => setComments(e.target.value)}
+          />
+          
+          <input type="button" onClick={ onClick } value="confirm" />
+        </div><button className="btn btn-primary" onClick={handleUpdate}>
+            Submit your comment
+          </button>
+          </div>
     </div>
   );
 }

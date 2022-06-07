@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import "./singlePost.css";
 import ReactPlayer from 'react-player'
+import Posts from "../posts/Posts";
 
 export default function SinglePost() {
   const location = useLocation();
@@ -19,8 +20,8 @@ export default function SinglePost() {
   const [amount, setAmount] = useState("");
   const [contact, setContact] = useState("");
   const [address, setAddress] = useState("");
-  const [desc, setDesc] = useState("");
-  const [comments, setComments] = useState("");
+  const [desc, setDesc] = useState([]);
+  const [comments, setComments] = useState();
   const [updateMode, setUpdateMode] = useState(false);
 
   useEffect(() => {
@@ -35,10 +36,38 @@ export default function SinglePost() {
       setFloor(res.data.floor);
       setRoom(res.data.room);
       setContact(res.data.contact);
+      // setComments( arr => [...arr, `${res.data.comments}`]);
       setComments(res.data.comments);
+      // setComments(res.data.comments);
+      // setComments( arr => [...arr, `${arr.length}`]);
     };
     getPost();
   }, [path]);
+
+  const onClick = () => {
+    
+    setDesc( arr => [...arr, `${comments+"\n"+"--------------------------"+user.username}`]);
+    
+};
+
+const handlecomment= async () => {
+  try {
+    await axios.put(`/posts/${post._id}`, {
+      floor,
+    });
+    
+  } catch (err) {}
+  
+  // try {
+  //   await axios.put(`/posts/${post._id}`, {
+  //    $push:{
+  //      comments : "helllo",
+  //    }
+  //   });
+   
+  // } catch (err) {}
+};
+
 
   const handleDelete = async () => {
     try {
@@ -61,7 +90,6 @@ export default function SinglePost() {
         area,
         amount,
         contact,
-        comments,
       });
       setUpdateMode(false)
     } catch (err) {}
@@ -271,7 +299,7 @@ export default function SinglePost() {
         )}
 
 
-
+{/* 
         {updateMode ? (
           <textarea
             className="singlePostDescInput"
@@ -280,25 +308,54 @@ export default function SinglePost() {
             onChange={(e) => setDesc(e.target.value)}
           />
         ) : (
-          <p className="singlePostDesc"><button type="button" class="btn btn-dark">Description</button>{"  "+desc}</p>
+          // <p className="singlePostDesc"><button type="button" class="btn btn-dark">Description</button>{"  "+desc}</p>
+          <p className="singlePostDesc"><button type="button" class="btn btn-dark">Description</button></p>
         )}
         {updateMode && (
           <button className="singlePostButton" onClick={handleUpdate}>
             Update
           </button>
-        )}
+        )} */}
       </div>
-      {/* <p className="singlePostDesc"><button type="button" class="btn btn-dark">Comments</button>{"  "+comments}</p>
+      <div>
+      {/* <p>
+            {"      "+comments}</p> */}
+    <div>
+    <p className="singlePostDesc"><button type="button" class="btn btn-secondary">Comments</button></p>
+    
+    <div>
+          <div class="card-header">
+   
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+       {/* {desc.map(desc => <h4>{desc}</h4>)} */}
+       {desc.map(desc => 
+       <div class="card-body">
+         <blockquote class="blockquote mb-0"></blockquote>
+         <h4>{desc}</h4></div>
+         
+       )}
+    </blockquote>
+  </div>
+  </div>
+
+     
+      	</div>
       <div class="card my-4">
-          <label>Comment   </label>
-          <input placeholder="Leave a comment"></input><textarea
+          
+          <textarea
+          placeholder="Leave a Comment"
             className="singlePostDescInput"
             value={comments}
             onChange={(e) => setComments(e.target.value)}
           />
-        </div><button className="singlePostButton" onClick={handleUpdate}>
-            Update
-          </button> */}
+          
+          <input type="button" onClick={ onClick } value="confirm" />
+        </div><button className="btn btn-primary" onClick={handleUpdate}>
+            Submit your comment
+          </button>
+          </div>
     </div>
 
     
