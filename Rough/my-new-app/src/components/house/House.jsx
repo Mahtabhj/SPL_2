@@ -281,6 +281,12 @@ export default function House() {
         ) : (
           <p className="singlePostDesc"><button type="button" class="btn btn-dark">Description</button>{"  "+desc}</p>
         )} */}
+
+{updateMode && (
+          <button className="singlePostButton" onClick={handleUpdate}>
+            Update
+          </button>
+        )}
         </div>
       <div>
       {/* <p>

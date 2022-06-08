@@ -280,7 +280,14 @@ export default function Hostel() {
           />
         ) : (
           <p className="singlePostDesc"><button type="button" class="btn btn-dark">Description</button>{"  "+desc}</p>
-        )} */} </div>
+        )} */}
+         {updateMode && (
+          <button className="singlePostButton" onClick={handleUpdate}>
+            Update
+          </button>
+        )}
+        
+         </div>
       <div>
       {/* <p>
             {"      "+comments}</p> */}

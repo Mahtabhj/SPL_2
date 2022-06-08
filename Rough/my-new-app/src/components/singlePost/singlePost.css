@@ -1,7 +1,9 @@
 .singlePost {
   flex: 9;
 }
-
+h4 {
+  font-family: Vivaldi, cursive;
+}
 .singlePostWrapper {
   padding: 20px;
   padding-right: 0;

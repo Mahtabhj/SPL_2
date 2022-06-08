@@ -299,8 +299,8 @@ const handlecomment= async () => {
         )}
 
 
-{/* 
-        {updateMode ? (
+
+        {/* {updateMode ? (
           <textarea
             className="singlePostDescInput"
             placeholder="Description"
@@ -310,12 +310,12 @@ const handlecomment= async () => {
         ) : (
           // <p className="singlePostDesc"><button type="button" class="btn btn-dark">Description</button>{"  "+desc}</p>
           <p className="singlePostDesc"><button type="button" class="btn btn-dark">Description</button></p>
-        )}
+        )} */}
         {updateMode && (
           <button className="singlePostButton" onClick={handleUpdate}>
             Update
           </button>
-        )} */}
+        )}
       </div>
       <div>
       {/* <p>
